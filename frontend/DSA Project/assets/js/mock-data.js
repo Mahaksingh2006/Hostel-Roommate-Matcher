@@ -1,0 +1,80 @@
+window.HOSTEL_MATCH_DEMO_STUDENTS = [
+  {
+    id: 101,
+    name: "Ananya Sharma",
+    gender: "Female",
+    branch: "CSE",
+    year: 2,
+    sleepTime: "early",
+    cleanliness: "high",
+    foodHabit: "veg",
+    studyPreference: "quiet",
+    roomType: "double",
+    hobbies: ["reading", "chess", "music"]
+  },
+  {
+    id: 102,
+    name: "Riya Patel",
+    gender: "Female",
+    branch: "CSE",
+    year: 2,
+    sleepTime: "early",
+    cleanliness: "high",
+    foodHabit: "veg",
+    studyPreference: "quiet",
+    roomType: "double",
+    hobbies: ["reading", "chess"]
+  },
+  {
+    id: 103,
+    name: "Kavya Nair",
+    gender: "Female",
+    branch: "ECE",
+    year: 2,
+    sleepTime: "late",
+    cleanliness: "medium",
+    foodHabit: "veg",
+    studyPreference: "music",
+    roomType: "double",
+    hobbies: ["music", "coding"]
+  },
+  {
+    id: 104,
+    name: "Meera Singh",
+    gender: "Female",
+    branch: "ME",
+    year: 3,
+    sleepTime: "late",
+    cleanliness: "low",
+    foodHabit: "non-veg",
+    studyPreference: "group",
+    roomType: "triple",
+    hobbies: ["football", "movies"]
+  },
+  {
+    id: 105,
+    name: "Arjun Mehta",
+    gender: "Male",
+    branch: "CSE",
+    year: 2,
+    sleepTime: "early",
+    cleanliness: "medium",
+    foodHabit: "any",
+    studyPreference: "quiet",
+    roomType: "double",
+    hobbies: ["coding", "chess", "reading"]
+  },
+  {
+    id: 106,
+    name: "Kabir Khan",
+    gender: "Male",
+    branch: "IT",
+    year: 1,
+    sleepTime: "flexible",
+    cleanliness: "high",
+    foodHabit: "any",
+    studyPreference: "music",
+    roomType: "triple",
+    hobbies: ["music", "gaming"]
+  }
+];

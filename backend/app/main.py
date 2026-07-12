@@ -10,9 +10,7 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {
-        "message": "Welcome to Hostel Roommate Matcher API!"
-    }
+    return {"message": "Welcome to Hostel Roommate Matcher API!"}
 
 
 @app.post("/students")
@@ -23,13 +21,14 @@ def add_student(student: Student):
     new_student = StudentModel(
         name=student.name,
         gender=student.gender,
-        department=student.department,
+        branch=student.branch,
         year=student.year,
-        study_time=student.study_time,
-        food_preference=student.food_preference,
-        sleep_time=student.sleep_time,
+        sleepTime=student.sleepTime,
         cleanliness=student.cleanliness,
-        personality=student.personality
+        foodHabit=student.foodHabit,
+        studyPreference=student.studyPreference,
+        roomType=student.roomType,
+        hobbies=",".join(student.hobbies)
     )
 
     db.add(new_student)
@@ -74,9 +73,7 @@ def match_student(student_id: int):
 
     if target is None:
         db.close()
-        return {
-            "error": "Student not found"
-        }
+        return {"error": "Student not found"}
 
     best_match = None
     best_score = -1
@@ -88,25 +85,25 @@ def match_student(student_id: int):
 
         score = 0
 
-        if s.department == target.department:
+        if s.branch == target.branch:
             score += 2
 
         if s.year == target.year:
             score += 2
 
-        if s.study_time == target.study_time:
+        if s.studyPreference == target.studyPreference:
             score += 1
 
-        if s.food_preference == target.food_preference:
+        if s.foodHabit == target.foodHabit:
             score += 1
 
-        if s.sleep_time == target.sleep_time:
+        if s.sleepTime == target.sleepTime:
             score += 1
 
         if s.cleanliness == target.cleanliness:
             score += 1
 
-        if s.personality == target.personality:
+        if s.roomType == target.roomType:
             score += 1
 
         if score > best_score:
@@ -116,9 +113,7 @@ def match_student(student_id: int):
     db.close()
 
     if best_match is None:
-        return {
-            "message": "No roommate found"
-        }
+        return {"message": "No roommate found"}
 
     return {
         "student_id": target.id,
@@ -128,3 +123,49 @@ def match_student(student_id: int):
         "compatibility_score": best_score,
         "compatibility_percentage": round((best_score / 9) * 100, 2)
     }
+@app.delete("/students/{student_id}")
+def delete_student(student_id: int):
+
+    db = SessionLocal()
+
+    student = db.query(StudentModel).filter(
+        StudentModel.id == student_id
+    ).first()
+
+    if not student:
+        db.close()
+        return {"error": "Student not found"}
+
+    db.delete(student)
+    db.commit()
+    db.close()
+
+    return {"message": "Student deleted successfully"}
+@app.put("/students/{student_id}")
+def update_student(student_id: int, student: Student):
+
+    db = SessionLocal()
+
+    existing = db.query(StudentModel).filter(
+        StudentModel.id == student_id
+    ).first()
+
+    if not existing:
+        db.close()
+        return {"error": "Student not found"}
+
+    existing.name = student.name
+    existing.gender = student.gender
+    existing.branch = student.branch
+    existing.year = student.year
+    existing.sleepTime = student.sleepTime
+    existing.cleanliness = student.cleanliness
+    existing.foodHabit = student.foodHabit
+    existing.studyPreference = student.studyPreference
+    existing.roomType = student.roomType
+    existing.hobbies = ",".join(student.hobbies)
+
+    db.commit()
+    db.close()
+
+    return {"message": "Student updated successfully"}

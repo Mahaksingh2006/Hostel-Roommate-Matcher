@@ -3,16 +3,11 @@ from pydantic import BaseModel
 class Student(BaseModel):
     name: str
     gender: str
-    department: str
+    branch: str
     year: int
-    study_time: str
-    food_preference: str
-    sleep_time: str
+    sleepTime: str
     cleanliness: str
-    personality: str
-
-class StudentResponse(Student):
-    id: int
-
-    class Config:
-        from_attributes = True
+    foodHabit: str
+    studyPreference: str
+    roomType: str
+    hobbies: list[str] = []

@@ -7,12 +7,16 @@ class Student(Base):
     __tablename__ = "students"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(100))
-    gender = Column(String(20))
-    department = Column(String(50))
+
+    name = Column(String)
+    gender = Column(String)
+    branch = Column(String)
     year = Column(Integer)
-    study_time = Column(String(50))
-    food_preference = Column(String(50))
-    sleep_time = Column(String(50))
-    cleanliness = Column(String(50))
-    personality = Column(String(50))
+
+    sleepTime = Column(String)
+    cleanliness = Column(String)
+    foodHabit = Column(String)
+    studyPreference = Column(String)
+
+    roomType = Column(String)
+    hobbies = Column(String)
