@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://hostel-roommate-matcher.onrender.com";
 const students = new Map();
 let latestRecommendations = [];
 let recentActivity = [];
