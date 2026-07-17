@@ -25,7 +25,7 @@
     <span class="shape shape-two"></span>
     <span class="shape shape-three"></span>
   </div>
-  <button onclick="logout()">Logout</button>
+  
 
   <nav class="navbar" aria-label="Primary navigation">
     <a class="brand" href="#home" aria-label="HostelMatch Pro home">
@@ -46,6 +46,9 @@
       <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">Dark</button>
       <button class="primary small" id="loadDemoBtn" type="button">Load Demo</button>
     </div>
+    <button class="logout-btn" onclick="logout()">
+      Logout
+  </button>
   </nav>
 
   <header class="hero section" id="home">
@@ -359,8 +362,8 @@
   <script src="assets/js/mock-data.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
-    function logout() {
-        localStorage.removeItem("loggedIn");
+    function logout(){
+        localStorage.clear();
         window.location.href = "index.html";
     }
     </script>
