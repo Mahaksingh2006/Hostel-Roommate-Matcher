@@ -16,3 +16,13 @@ A full-stack web application that helps hostel students find compatible roommate
 ## Project Status
 
 🚧 Project Setup Completed
+## Live Deployment
+
+Frontend (Netlify):
+https://elegant-phoenix-354e52.netlify.app/
+
+Backend API (Render):
+https://hostel-roommate-matcher.onrender.com/
+
+API Documentation (Swagger):
+https://hostel-roommate-matcher.onrender.com/docs
